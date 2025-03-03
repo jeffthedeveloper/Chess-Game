@@ -6,23 +6,31 @@ A Simple Chess Game Made With Java Language! 🚀
 
 Este projeto é um jogo de xadrez desenvolvido em Java, utilizando uma arquitetura baseada em classes e conceitos de Programação Orientada a Objetos (POO). O objetivo é criar uma implementação funcional do jogo, permitindo movimentação das peças e validação de jogadas.
 
-📦 Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 O projeto está organizado nos seguintes pacotes:
 
-📁 src/
-   ├── 📂 boardgame/  # Contém as classes base para o tabuleiro
-   │   ├── Board.java
-   │   ├── Piece.java
-   │   ├── Position.java
-   │   ├── BoardException.java
-   │
-   ├── 📂 chess/       # Contém as regras e implementação do xadrez
-   │   ├── ChessMatch.java
-   │   ├── ChessPiece.java
-   │   ├── ChessPosition.java
-   │   ├── ChessException.java
-   │   ├── Color.java
+<details>
+  <summary><strong>📁 src/boardgame</strong> (Classes base para o tabuleiro)</summary>
+  <ul>
+    <li>📄 Board.java</li>
+    <li>📄 Piece.java</li>
+    <li>📄 Position.java</li>
+    <li>📄 BoardException.java</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>📁 src/chess</strong> (Regras e implementação do jogo)</summary>
+  <ul>
+    <li>📄 ChessMatch.java</li>
+    <li>📄 ChessPiece.java</li>
+    <li>📄 ChessPosition.java</li>
+    <li>📄 ChessException.java</li>
+    <li>📄 Color.java</li>
+  </ul>
+</details>
+
 
 🛠️ Tecnologias Utilizadas
 
