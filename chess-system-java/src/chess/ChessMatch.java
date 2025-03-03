@@ -1,5 +1,9 @@
 package chess;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 import boardgame.Board; // Importa a classe Board
 import boardgame.Piece; // Importa a classe Piece para representar as peças do jogo
 import boardgame.Position; // Importa a classe Position para manipular coordenadas do tabuleiro
@@ -47,5 +51,35 @@ public class ChessMatch {
     // Troca o jogador
     public void changePlayer() {
         currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
+
+    public boolean getCheckMate() {
+        // lógica para verificar o status do xeque-mate
+        return false; // ou verdadeiro com base no estado do jogo
     }
+
+    public void printMatch(ChessMatch match) {
+        //Lógica para imprimir os detalhes da partida de xadrez
+        System.out.println(match.toString()); // Supondo que o toString() seja substituído
+    }
+
+    public ChessPosition readChessPosition(Scanner sc) {
+        // Lógica para ler a entrada de posição do usuário
+        String position = sc.nextLine();
+        return new ChessPosition(position);
+    }
+
+    public List<ChessPosition> possibleMoves(ChessPosition position) {
+        // Retorna os movimentos possíveis para a posição dada
+        return new ArrayList<>();
+    }
+
+    public List<Piece> getPieces() {
+        return this.pieces; // Supondo que as peças sejam uma lista de peças no jogo
+    }
+
+    // Lógica para executar o movimento
+    public void performChessMove(ChessPosition from, ChessPosition to) {
+       
+    }
+
 }
