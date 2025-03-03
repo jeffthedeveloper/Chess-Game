@@ -1,0 +1,28 @@
+package chess;
+import java.util.List;
+import java.util.Random;
+
+public class ChessAI {
+    private ChessMatch match;
+    private Random random = new Random();
+
+    public ChessAI(ChessMatch match) {
+        this.match = match;
+    }
+
+    public void makeRandomMove() {
+        List<ChessPiece> pieces = match.getPieces(Color.BLACK);
+        ChessPiece piece;
+        Position target;
+        
+        do {
+            piece = pieces.get(random.nextInt(pieces.size()));
+            List<Position> moves = match.getValidMoves(piece);
+            if (!moves.isEmpty()) {
+                target = moves.get(random.nextInt(moves.size()));
+                match.move(piece, target);
+                break;
+            }
+        } while (true);
+    }
+}
