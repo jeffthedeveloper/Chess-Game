@@ -103,9 +103,9 @@ Implementação futura: Xeque-mate e outras regras avançadas.
 
 🚀 Melhorias Futuras
 
->✅ Implementação de um motor de jogadas válidas
->✅ Interface gráfica com JavaFX ou Swing
->✅ Jogador vs Computador usando Algoritmos de IA
+>✅ Implementação de um motor de jogadas válidas <br>
+>✅ Interface gráfica com JavaFX ou Swing <br>
+>✅ Jogador vs Computador usando Algoritmos de IA <br>
 
 🤝 Contribuições
 
