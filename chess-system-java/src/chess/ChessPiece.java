@@ -8,16 +8,23 @@ public abstract class ChessPiece extends Piece {
     private Color color; // Cor da peça (preta ou branca)
 
     // Construtor da peça de xadrez
-    public ChessPiece(int row, int column, Color color, Board board) {
-        super(row, column, true); // Chama o construtor da classe Piece
-        this.color = color; // Define a cor da peça
+    public ChessPiece(Board board, Color color) {
+        super(board);
+        this.color = color;
     }
 
     public Color getColor() {
-        return color; // Retorna a cor da peça
+        return color;
     }
 
     public void setColor(Color color) {
         this.color = color; // Define a cor da peça
     }
+
+    /**
+     * Método abstrato para verificar se o movimento é válido.
+     * Cada peça implementa sua própria versão desse método.
+     */
+
+    public abstract boolean isValidMove(Position start, Position end);
 }
