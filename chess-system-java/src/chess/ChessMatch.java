@@ -13,6 +13,7 @@ public class ChessMatch {
     private Color currentPlayer; // Define quem é o jogador da vez (preto ou branco)
     private boolean check; // Verifica se há cheque
     private boolean checkmate; // Verifica se há xeque-mate
+    private List<Piece> pieces; // Lista de peças do jogo
 
     // Construtor da partida de xadrez
     public ChessMatch() {
@@ -20,6 +21,7 @@ public class ChessMatch {
         this.currentPlayer = Color.WHITE; // Define o jogador inicial como branco
         this.check = false; // Inicialmente, não há cheque
         this.checkmate = false; // Inicialmente, não há xeque-mate
+        this.pieces = new ArrayList<>(); // Inicializa a lista de peças
         setupBoard(); // Método para configurar as peças no tabuleiro
     }
 
@@ -51,35 +53,38 @@ public class ChessMatch {
     // Troca o jogador
     public void changePlayer() {
         currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
+    }
 
+    // Método para verificar o status do xeque-mate
     public boolean getCheckMate() {
-        // lógica para verificar o status do xeque-mate
-        return false; // ou verdadeiro com base no estado do jogo
+        // Lógica para verificar o status do xeque-mate
+        return checkmate; // Retorna o estado atual de checkmate
     }
 
-    public void printMatch(ChessMatch match) {
-        //Lógica para imprimir os detalhes da partida de xadrez
-        System.out.println(match.toString()); // Supondo que o toString() seja substituído
+    // Lógica para imprimir os detalhes da partida de xadrez
+    public void printMatch() {
+        // Lógica para imprimir os detalhes da partida de xadrez
+        System.out.println(this.toString()); // Supondo que o toString() seja substituído
     }
 
+    // Lógica para ler a entrada de posição do usuário
     public ChessPosition readChessPosition(Scanner sc) {
-        // Lógica para ler a entrada de posição do usuário
         String position = sc.nextLine();
-        return new ChessPosition(position);
+        return new ChessPosition(position); // Retorna a posição informada
     }
 
+    // Retorna os movimentos possíveis para a posição dada
     public List<ChessPosition> possibleMoves(ChessPosition position) {
-        // Retorna os movimentos possíveis para a posição dada
-        return new ArrayList<>();
+        return new ArrayList<>(); // Retorna uma lista vazia de movimentos possíveis
     }
 
+    // Retorna as peças no jogo
     public List<Piece> getPieces() {
-        return this.pieces; // Supondo que as peças sejam uma lista de peças no jogo
+        return this.pieces; // Retorna a lista de peças do jogo
     }
 
     // Lógica para executar o movimento
     public void performChessMove(ChessPosition from, ChessPosition to) {
-       
+        // Lógica para realizar o movimento de uma peça
     }
-
 }

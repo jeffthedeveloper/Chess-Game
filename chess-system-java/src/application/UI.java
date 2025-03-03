@@ -2,6 +2,9 @@ package application;
 
 import java.util.Scanner;
 
+import chess.ChessMatch;
+import chess.ChessPosition;
+
 public class UI {
 
     // Definições de cores ANSI para melhorar a visualização do tabuleiro e peças.
@@ -33,7 +36,15 @@ public class UI {
 
     // Método para imprimir o tabuleiro de xadrez com as cores
     public static void printBoard(String[][] board) {
+        String[][] board = new String[8][8];
+        // Inicializar o tabuleiro com as peças
+        for (Piece piece : pieces) {
+            board[piece.getPosition().getRow()][piece.getPosition().getColumn()] = piece.toString();
+        }
         System.out.println(ANSI_RESET);
+
+        // Exibir o tabuleiro e as possíveis jogadas
+
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 if ((row + col) % 2 == 0) {
@@ -62,9 +73,23 @@ public class UI {
         return move;
     }
 
-    // Método para imprimir o estado da partida
-    public static void printMatch(String status) {
-        System.out.println(ANSI_YELLOW + "Estado da Partida: " + status + ANSI_RESET);
+    public class UI {
+        public static void printMatch(ChessMatch chessMatch) {
+                // Imprimir o status da partida, por exemplo:
+                System.out.println("Current Player: " + chessMatch.getCurrentPlayer());
+                // Lógica para exibir o status de check e checkmate
+                if (chessMatch.isInCheck()) {
+                    System.out.println("Check!");
+                }
+                if (chessMatch.isCheckmate()) {
+                    System.out.println("Checkmate!");
+                }
+        // Imprimir o tabuleiro ou outras informações necessária
+
+        public static ChessPosition readChessPosition(Scanner sc) {
+            String position = sc.nextLine(); // Leitura da posição
+            return new ChessPosition(position); // Retorna a posição como ChessPosition
+        }
     }
 
     // Método para exibir a peça
