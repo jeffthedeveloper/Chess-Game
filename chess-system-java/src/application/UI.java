@@ -1,9 +1,9 @@
 package application;
 
 import java.util.Scanner;
-
 import chess.ChessMatch;
 import chess.ChessPosition;
+import chess.Piece;
 
 public class UI {
 
@@ -35,21 +35,16 @@ public class UI {
     }
 
     // Método para imprimir o tabuleiro de xadrez com as cores
-    public static void printBoard(String[][] board) {
-        String[][] board = new String[8][8];
-        // Inicializar o tabuleiro com as peças
-        for (Piece piece : pieces) {
-            board[piece.getPosition().getRow()][piece.getPosition().getColumn()] = piece.toString();
-        }
+    public static void printBoard(Piece[][] board) {
         System.out.println(ANSI_RESET);
-
-        // Exibir o tabuleiro e as possíveis jogadas
-
+        // Exibir o tabuleiro
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 if ((row + col) % 2 == 0) {
+                    // Posicionamento com fundo escuro
                     System.out.print(ANSI_BLACK_BACKGROUND + " " + board[row][col] + " " + ANSI_RESET);
                 } else {
+                    // Posicionamento com fundo claro
                     System.out.print(ANSI_WHITE_BACKGROUND + " " + board[row][col] + " " + ANSI_RESET);
                 }
             }
@@ -58,38 +53,22 @@ public class UI {
     }
 
     // Método para ler a posição de uma peça (exemplo: "e2")
-    public static String readPosition() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite a posição da peça (ex: e2): ");
-        String position = scanner.nextLine();
-        return position;
+    public static ChessPosition readChessPosition(Scanner sc) {
+        String position = sc.nextLine(); // Leitura da posição
+        return new ChessPosition(position); // Retorna a posição como ChessPosition
     }
 
-    // Método para ler a jogada do jogador (exemplo: "e2 e4")
-    public static String readMove() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite a jogada (ex: e2 e4): ");
-        String move = scanner.nextLine();
-        return move;
-    }
-
-    public class UI {
-        public static void printMatch(ChessMatch chessMatch) {
-                // Imprimir o status da partida, por exemplo:
-                System.out.println("Current Player: " + chessMatch.getCurrentPlayer());
-                // Lógica para exibir o status de check e checkmate
-                if (chessMatch.isInCheck()) {
-                    System.out.println("Check!");
-                }
-                if (chessMatch.isCheckmate()) {
-                    System.out.println("Checkmate!");
-                }
-        // Imprimir o tabuleiro ou outras informações necessária
-
-        public static ChessPosition readChessPosition(Scanner sc) {
-            String position = sc.nextLine(); // Leitura da posição
-            return new ChessPosition(position); // Retorna a posição como ChessPosition
+    // Método para imprimir o status da partida
+    public static void printMatch(ChessMatch chessMatch) {
+        System.out.println("Current Player: " + chessMatch.getCurrentPlayer());
+        // Lógica para exibir o status de check e checkmate
+        if (chessMatch.isInCheck()) {
+            System.out.println("Check!");
         }
+        if (chessMatch.isCheckmate()) {
+            System.out.println("Checkmate!");
+        }
+        // Imprimir o tabuleiro ou outras informações necessárias
     }
 
     // Método para exibir a peça
