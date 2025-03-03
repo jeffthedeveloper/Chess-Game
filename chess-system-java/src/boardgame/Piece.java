@@ -1,7 +1,7 @@
 package boardgame;
 
 public abstract class Piece {
-    protected Position position;
+    protected Position position; 
 
     // Construtor
     public Piece(Position position) {
