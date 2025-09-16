@@ -44,7 +44,7 @@ O projeto está organizado nos seguintes pacotes:
 
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/chess-game.git
+git clone https://github.com/jeffthedeveloper/chess-game.git
 cd chess-game
 
 Compile o projeto:
